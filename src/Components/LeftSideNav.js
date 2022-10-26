@@ -2,7 +2,7 @@ import React from 'react';
 
 const LeftSideNav = () => {
     return (
-        <div className='bg-primary'>
+        <div className='bg-primary border rounded'>
             <h1>this is left side nav</h1>
         </div>
     );
