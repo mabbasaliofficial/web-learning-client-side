@@ -5,7 +5,6 @@ import CourseDetails from "../Components/CourseDetails";
 import LeftSideNav from "../Components/LeftSideNav";
 
 const Course = () => {
-  const courses = useLoaderData();
   return (
     <Container>
         <Row>

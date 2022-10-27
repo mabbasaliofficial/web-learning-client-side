@@ -23,17 +23,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses/:id",
-        loader: () => {
-          return fetch('https://myapp-silk-ten.vercel.app/courses');
-        }, 
+         
         element: <Course></Course>,
       },
       {
         path: "/courseDetails/:id",
         element: <CourseDetails></CourseDetails>,
-        loader: ({params}) => {
-          return fetch(`https://myapp-silk-ten.vercel.app/courses/${params.id}`);
-        },
+        
       },
       {
         path: "/blogs",

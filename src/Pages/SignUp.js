@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const SignUp = () => {
   const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -76,14 +77,14 @@ const SignUp = () => {
             onClick={googleHandler}
             class="btn btn-outline-primary mt-2 d-block mx-auto w-100"
           >
-            Sign In With Google
+           <FaGoogle/> Sign In With Google
           </button>
           <button
             onClick={githubHandler}
             type="button"
             class="btn btn-outline-primary mt-1 d-block mx-auto w-100"
           >
-            Sign In With Github
+           <FaGithub/> Sign In With Github
           </button>
         </div>
         <div className="mt-3">
