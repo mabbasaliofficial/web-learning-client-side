@@ -18,6 +18,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses",
+        loader: async () => {
+          return fetch('https://myapp-silk-ten.vercel.app/courses');
+        }, 
         element: <Course></Course>,
       },
       {

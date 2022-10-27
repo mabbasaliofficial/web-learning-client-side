@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import LeftSideNav from "../Components/LeftSideNav";
 
 const Course = () => {
-    return (
-        <div>
-            <h1>this is courses</h1>
-        </div>
-    );
+  const courses = useLoaderData();
+  return (
+    <div  className="m-5">
+      <div>
+        {courses.map((course) => (
+          <LeftSideNav key={course.id} course={course}></LeftSideNav>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Course;
