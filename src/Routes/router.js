@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import FAQ from "../Pages/FAQ";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import CourseDetails from "../Components/CourseDetails";
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +19,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        loader: async () => {
+        loader: () => {
           return fetch('https://myapp-silk-ten.vercel.app/courses');
         }, 
         element: <Course></Course>,
+      },
+      {
+        path: "/courses/:id",
+        element: <CourseDetails></CourseDetails>,
+        loader: ({params}) => {
+          return fetch(`https://myapp-silk-ten.vercel.app/courses/${params.id}`);
+        },
       },
       {
         path: "/blogs",
