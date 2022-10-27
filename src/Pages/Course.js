@@ -7,23 +7,13 @@ import LeftSideNav from "../Components/LeftSideNav";
 const Course = () => {
   const courses = useLoaderData();
   return (
-    // <div className="m-5 d-flex">
-    //   <div className="w-100">
-    //     {courses.map((course) => (
-    //       <LeftSideNav key={course.id} course={course}></LeftSideNav>
-    //     ))}
-    //   </div>
-    //   <div>
-    //     <CourseDetails></CourseDetails>
-    //   </div>
-    // </div>
     <Container>
         <Row>
-          <Col>
-            <h2>Side Nav</h2>
+          <Col lg='4'>
+            <LeftSideNav></LeftSideNav>
           </Col>
-          <Col>
-            <h2>Main Courses</h2>
+          <Col lg='8'>
+            <CourseDetails></CourseDetails>
           </Col>
         </Row>
       </Container>

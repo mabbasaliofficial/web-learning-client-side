@@ -2,7 +2,8 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div>
+    <div className="border border-primary rounded m-2 p-2 m-lg-5 p-lg-5">
+      <div className="border border-primary rounded m-2 p-2 m-lg-5 p-lg-5">
       <h1>What is cors?</h1>
       <p>
         Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a
@@ -17,6 +18,8 @@ const Blogs = () => {
         CORS is currently implemented in browsers. An earlier specification was published as a W3C
         Recommendation.
       </p>
+      </div>
+      <div className="border border-primary rounded m-2 p-2 m-lg-5 p-lg-5">
       <h1>
         Why are you using firebase? What other options do you have to implement authentication?
       </h1>
@@ -33,6 +36,8 @@ const Blogs = () => {
         getting started experience, optional UX components designed to minimize user friction, and
         is built on open standards and backed by Google infrastructure.
       </p>
+      </div>
+      <div className="border border-primary rounded m-2 p-2 m-lg-5 p-lg-5">
       <h1>How does the private route work?</h1>
       <p>
         Private Routes in React Router (also called Protected Routes) require a user being
@@ -43,6 +48,8 @@ const Blogs = () => {
         For example, a user can also have roles and permissions which give a user access to specific
         areas of the application.
       </p>
+      </div>
+      <div className="border border-primary rounded m-2 p-2 m-lg-5 p-lg-5">
       <h1>What is Node? How does Node work?</h1>
       <p>
         Node.js is an open-source backend javascript runtime environment. It is a used as backend
@@ -57,6 +64,7 @@ const Blogs = () => {
         can handle concurrent requests with a single thread without blocking it for one request.
         Node.js basically works on two concept Asynchronous Non-blocking I/O
       </p>
+      </div>
     </div>
   );
 };
