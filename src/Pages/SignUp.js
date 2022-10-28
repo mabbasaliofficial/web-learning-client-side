@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const SignUp = () => {
   const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState(null)
   const signUpHandler = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,9 +17,13 @@ const SignUp = () => {
       .then((data) => {
         const user = data.user;
         console.log(user);
+        form.reset()
       })
       .catch((err) => {
         console.log(err.message);
+        if(err.message){
+          setError('You are something wrong');
+        }
       });
   };
   const googleHandler = () => {
@@ -29,6 +34,9 @@ const SignUp = () => {
       })
       .catch((err) => {
         console.log(err.message);
+        if(err.message){
+          setError('You are something wrong');
+        }
       });
   };
   const githubHandler = () => {
@@ -39,6 +47,9 @@ const SignUp = () => {
       })
       .catch((err) => {
         console.log(err.message);
+        if(err.message){
+          setError('You are something wrong');
+        }
       });
   };
   return (
@@ -67,6 +78,7 @@ const SignUp = () => {
             Password
           </label>
           <input type="password" name="password" className="form-control" id="password" />
+          <p className="text-danger">{error}</p>
         </div>
         <button type="submit" className="btn btn-primary d-block mx-auto w-100">
           Sign Up

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
 
 const Login = () => {
     const {emailSignIn} = useContext(AuthContext);
+    const [error, setError] = useState(null)
     const loginHandler = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -14,9 +16,14 @@ const Login = () => {
         .then((data) => {
             const user = data.user;
             console.log(user);
+            form.reset()
         })
         .catch((error) => {
             console.log(error.message);
+            if(error.message){
+              setError('You are something wrong');
+            }
+
         });
     };
     return (
@@ -38,6 +45,7 @@ const Login = () => {
               Password
             </label>
             <input type="password" className="form-control" name='password' />
+            <p className='text-danger'>{error}</p>
           </div>
           <button type="submit" className="btn btn-primary d-block mx-auto w-100">
             Log In

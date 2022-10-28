@@ -7,6 +7,8 @@ import FAQ from "../Pages/FAQ";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
 import CourseDetails from "../Components/CourseDetails";
+import AllCourses from "../Components/AllCourses";
+import Courses from "../Components/Courses";
 
 export const router = createBrowserRouter([
   {
@@ -17,40 +19,54 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      {
-        path: "/courses",
-        element: <Course></Course>,
-      },
-      {
-        path: "/courses/:id",
-         
-        element: <Course></Course>,
-      },
-      {
-        path: "/courseDetails/:id",
-        element: <CourseDetails></CourseDetails>,
-        
-      },
+
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
       },
       {
-        path:"/faq",
-        element: <FAQ></FAQ>
+        path: "/faq",
+        element: <FAQ></FAQ>,
       },
+     
       {
         path: "/signup",
         element: <SignUp></SignUp>,
       },
       {
         path: "/login",
-        element: <Login></Login>
-      }
+        element: <Login></Login>,
+      },
     ],
   },
   {
-    path: '*',
-    element: <div><h1>Not Found This Routes</h1></div>
-  }
+    path: "/course",
+    element: <Course></Course>,
+    children: [
+      {
+        path: "category/:id",
+        element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+      },
+      {
+        path: "/course",
+        element: <AllCourses></AllCourses>,
+        loader: () => fetch("http://localhost:5000/allCourses"),
+      },
+      {
+        path: "/course/:id",
+        element: <Courses></Courses>,
+        loader: ({params}) => fetch(`http://localhost:5000/allCourses/${params.id}`)
+      },
+     
+    ],
+  },
+  {
+    path: "*",
+    element: (
+      <div>
+        <h1>Not Found This Routes</h1>
+      </div>
+    ),
+  },
 ]);
