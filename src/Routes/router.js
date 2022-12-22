@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         path: "/faq",
         element: <FAQ></FAQ>,
       },
-     
+
       {
         path: "/signup",
         element: <SignUp></SignUp>,
@@ -46,19 +46,20 @@ export const router = createBrowserRouter([
       {
         path: "category/:id",
         element: <CourseDetails></CourseDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://myapp-mabbasaliofficial.vercel.app/category/${params.id}`),
       },
       {
         path: "/course",
         element: <AllCourses></AllCourses>,
-        loader: () => fetch("http://localhost:5000/allCourses"),
+        loader: () => fetch("https://myapp-mabbasaliofficial.vercel.app/allCourses"),
       },
       {
         path: "/course/:id",
         element: <Courses></Courses>,
-        loader: ({params}) => fetch(`http://localhost:5000/allCourses/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://myapp-mabbasaliofficial.vercel.app/allCourses/${params.id}`),
       },
-     
     ],
   },
   {

@@ -1,12 +1,21 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
     const course = useLoaderData()
-    console.log(course)
+    const {image_url, details, title} = course;
     return (
-        <div>
-           <h2>alfj{course.title}</h2>
+        <div className='mt-5 w-75'>
+           <Card>
+        <Card.Img variant="top" src={image_url} />
+        <Card.Body>
+            <Card.Title className='fw-bold'>{title}</Card.Title>
+          <Card.Text>
+            {details}
+          </Card.Text>
+        </Card.Body>
+      </Card>
         </div>
     );
 };
